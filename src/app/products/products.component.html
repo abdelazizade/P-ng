@@ -1,0 +1,39 @@
+<div class="search-sort-filter">
+  <input type="text" [formControl]="searchControl" placeholder="Search" />
+
+  <select id="sort-by" (change)="sort($event)">
+    <option value="" selected disabled hidden>Sort By</option>
+    <option value="Low">Show Low to High Price</option>
+    <option value="High">Show High to Low Price</option>
+  </select>
+
+  <select id="sort-by" (change)="filterBy($event)">
+    <option value="" selected disabled hidden>Filter By Category</option>
+    <option value="1">one</option>
+    <option value="2">two</option>
+    <option value="3">three</option>
+    <option value="4">four</option>
+  </select>
+</div>
+
+<div class="container">
+  <div *ngFor="let product of displayedData" class="product">
+    <img src="{{ product.image }}" alt="{{ product.title }}" />
+    <div class="product-details">
+      <div>
+        <h3>{{ product.title }}</h3>
+        <p>{{ product.description | shorten : "20" }}</p>
+        <p class="product-price">EGP {{ product.price }}</p>
+        <div class="product-rating">
+          <button>{{ product.rating.rate }} <span>Rating</span></button>
+          <button>{{ product.rating.count }} <span>Rates</span></button>
+        </div>
+      </div>
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+
+<mat-paginator [length]="products.length" [pageSize]="4" class="pag" [pageSizeOptions]="[6, 10]"
+    (page)="onPageChange($event)"></mat-paginator>

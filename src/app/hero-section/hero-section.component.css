@@ -1,0 +1,36 @@
+.hero {
+    height: 500px;
+    background-image: url('../../assets/images/welcome-neon-glow-dark-background-glowing-1920x1080-2068.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  
+    .hero-inner {
+      text-align: center;
+  
+      h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        color: white;
+    }
+    
+    p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        max-width: 500px;
+        color: white;
+      }
+  
+      .cta-button {
+        font-size: 24px;
+        padding: 12px 30px;
+        background-color: #2b2b2b;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }

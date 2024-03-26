@@ -1,0 +1,120 @@
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem;
+    background-image: linear-gradient(90deg, #274b74 0%, #8233c5 50%, #e963fd 100%);
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically in the center */
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-link-item {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.nav-link-item:hover {
+    color: gold;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #000;
+}
+
+.btn-up {
+    color: #fff;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+}
+
+.social-links a {
+    margin-right: 10px;
+}
+
+/* Adjusted spacing for social links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* Adjust as needed */
+}
+
+.social-links a {
+    margin-right: 10px; /* Adjust as needed */
+}
+
+/* Twitter Icon Color */
+.social-links .twitter-icon {
+    fill: #000; /* Change to black */
+}
+
+/* Facebook Icon Color */
+.social-links .facebook-icon {
+    fill: #1877f2; /* Facebook blue color */
+}
+
+@media (min-width: 768px) {
+    footer {
+        padding: 2rem 10rem;
+    }
+
+    .w-full {
+        flex: 1;
+    }
+
+    .lg\:justify-start {
+        justify-content: flex-start;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+}
