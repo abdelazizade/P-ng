@@ -22,7 +22,9 @@
     <div class="product-details">
       <div>
         <h3>{{ product.title }}</h3>
-        <p>{{ product.description | shorten : "20" }}</p>
+        <p (click)="onNavigate($event, product.id)">
+          {{ product.description | shorten : "20" }}
+        </p>
         <p class="product-price">EGP {{ product.price }}</p>
         <div class="product-rating">
           <button>{{ product.rating.rate }} <span>Rating</span></button>
@@ -34,6 +36,12 @@
   </div>
 </div>
 
+<button class="btn btn-primary">Navigate</button>
 
-<mat-paginator [length]="products.length" [pageSize]="4" class="pag" [pageSizeOptions]="[6, 10]"
-    (page)="onPageChange($event)"></mat-paginator>
+<mat-paginator
+  [length]="products.length"
+  [pageSize]="4"
+  class="pag"
+  [pageSizeOptions]="[6, 10]"
+  (page)="onPageChange($event)"
+></mat-paginator>

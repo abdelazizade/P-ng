@@ -1,5 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import {
   Subscription,
   catchError,
@@ -21,7 +27,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { After } from 'v8';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-@Pipe({name: 'safehtml'})
+import { ActivatedRoute, Router } from '@angular/router';
+
+@Pipe({ name: 'safehtml' })
 export class SafeHtmlPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}
   transform(value: string): SafeHtml {
@@ -33,14 +41,14 @@ export class SafeHtmlPipe implements PipeTransform {
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
-export class ProductsComponent implements OnInit, AfterViewInit{ 
+export class ProductsComponent implements OnInit, AfterViewInit {
   pageSize: number = 4;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   currentPage: number = 1;
   displayedData: any[] = [];
 
   products: IProducts[] = [];
-original:any;
+  original: any;
   loading = false;
   errorMessage = '';
   searchControl = new FormControl('');
@@ -48,17 +56,17 @@ original:any;
 
   constructor(
     private apiServices: ApiServices,
-    private paginationService: PaginationService
-  ) {this.getAllProducts()}
-
-  // onPageChange(pageNumber: number) {
-  //   this.currentPage = pageNumber;
-  //   this.updateDisplayedData();
-  // }
-
-  updateDisplayedData() {
-    
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.getAllProducts();
   }
+  onNavigate(event: Event, productId: string) {
+    this.router.navigate(['product-details', productId]);
+    console.log(productId);
+  }
+
+  updateDisplayedData() {}
 
   ngAfterViewInit(): void {
     // this.onPageChange(1);
@@ -72,7 +80,7 @@ original:any;
         this.products = this.products.sort(
           (low, high) => low.price - high.price
         );
-        this.displayedData = this.products.slice(0,this.paginator.pageSize)
+        this.displayedData = this.products.slice(0, this.paginator.pageSize);
         // this.onPageChange(1);
         break;
       }
@@ -81,8 +89,8 @@ original:any;
         this.products = this.products.sort(
           (low, high) => high.price - low.price
         );
-        
-        this.displayedData = this.products.slice(0,this.paginator.pageSize)
+
+        this.displayedData = this.products.slice(0, this.paginator.pageSize);
         // this.onPageChange(1);
         break;
       }
@@ -97,53 +105,50 @@ original:any;
     return this.products;
   }
 
-
   ///////////////////////////////////////////////////////////////////////
-  
-  
-  
+
   ngOnInit(): void {
-    this.getAllProducts();  
+    this.getAllProducts();
   }
 
-  getAllProducts(): void{
-  // this.products = this.products.sort((low, high) => low.price - high.price);
+  getAllProducts(): void {
+    // this.products = this.products.sort((low, high) => low.price - high.price);
     // this.updateDisplayedData();
     this.searchControl.valueChanges
       .pipe(
         debounceTime(300),
         distinctUntilChanged(),
         switchMap((product) => {
-      if (product.trim() === '') {
-        return this.apiServices.getProducts();
-      } else {
-        return this.filterProductsByTitle(product);
-      }
-    }),
+          if (product.trim() === '') {
+            return this.apiServices.getProducts();
+          } else {
+            return this.filterProductsByTitle(product);
+          }
+        }),
         catchError(() => {
           return throwError(new Error('this product is not found'));
         })
       )
       .subscribe({
         next: (filteredProducts) => {
-          this.products = filteredProducts
-          this.displayedData=this.products
+          this.products = filteredProducts;
+          this.displayedData = this.products;
 
           // console.log(this.displayedData);
-          
+
           // this.updateDisplayedData();
           // console.log(filteredProducts);
         },
       });
-      // this.onPageChange(1)
+    // this.onPageChange(1)
 
     this.subscriptions.add(
       this.apiServices.getProducts().subscribe({
         next: (products) => {
           this.products = products;
           // this.displayedData=this.products
-          this.displayedData=this.products.slice(0,this.paginator.pageSize)
-    //      console.log(this.paginator.pageSize);
+          this.displayedData = this.products.slice(0, this.paginator.pageSize);
+          //      console.log(this.paginator.pageSize);
           this.original = products;
           this.loading = false;
         },
@@ -152,17 +157,16 @@ original:any;
         },
       })
     );
-}
+  }
 
-
-
-
-filterBy(event) {
-this.products = this.original
-  this.products = this.products.filter(p => p.categoryId === event.target.value);
-this.displayedData = this.products.slice(0,this.paginator.pageSize)
-  console.log(this.products);
-}
+  filterBy(event) {
+    this.products = this.original;
+    this.products = this.products.filter(
+      (p) => p.categoryId === event.target.value
+    );
+    this.displayedData = this.products.slice(0, this.paginator.pageSize);
+    console.log(this.products);
+  }
   filterProductsByTitle(searchProduct: string) {
     const filteredProducts = this.products.filter((product) =>
       product.title.toLowerCase().includes(searchProduct.toLowerCase())
@@ -174,6 +178,7 @@ this.displayedData = this.products.slice(0,this.paginator.pageSize)
     const endIndex = startIndex + event.pageSize;
     this.displayedData = this.products.slice(startIndex, endIndex);
   }
+
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }

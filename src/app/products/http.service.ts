@@ -13,4 +13,10 @@ export class ApiServices {
   getProducts() {
     return this.httpClient.get<IProducts[]>(this.domainAPI + '/products');
   }
+
+  getProductById(productId) {
+    return this.httpClient.get<IProducts[]>(
+      this.domainAPI + '/products/' + productId
+    );
+  }
 }

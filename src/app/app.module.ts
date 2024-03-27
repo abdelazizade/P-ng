@@ -28,8 +28,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {MatDividerModule} from '@angular/material/divider';
-
+import { MatDividerModule } from '@angular/material/divider';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import {MatDividerModule} from '@angular/material/divider';
     HeaderComponent,
     FooterComponent,
     HeroSectionComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,
