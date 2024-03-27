@@ -69,7 +69,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   updateDisplayedData() {}
 
   ngAfterViewInit(): void {
-    // this.onPageChange(1);
     this.getAllProducts();
   }
 
@@ -81,7 +80,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
           (low, high) => low.price - high.price
         );
         this.displayedData = this.products.slice(0, this.paginator.pageSize);
-        // this.onPageChange(1);
         break;
       }
 
@@ -91,7 +89,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
         );
 
         this.displayedData = this.products.slice(0, this.paginator.pageSize);
-        // this.onPageChange(1);
         break;
       }
 
@@ -112,8 +109,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   }
 
   getAllProducts(): void {
-    // this.products = this.products.sort((low, high) => low.price - high.price);
-    // this.updateDisplayedData();
     this.searchControl.valueChanges
       .pipe(
         debounceTime(300),
@@ -132,23 +127,15 @@ export class ProductsComponent implements OnInit, AfterViewInit {
       .subscribe({
         next: (filteredProducts) => {
           this.products = filteredProducts;
-          this.displayedData = this.products;
-
-          // console.log(this.displayedData);
-
-          // this.updateDisplayedData();
-          // console.log(filteredProducts);
+          this.displayedData = this.products.slice(0, this.paginator.pageSize);
         },
       });
-    // this.onPageChange(1)
 
     this.subscriptions.add(
       this.apiServices.getProducts().subscribe({
         next: (products) => {
           this.products = products;
-          // this.displayedData=this.products
           this.displayedData = this.products.slice(0, this.paginator.pageSize);
-          //      console.log(this.paginator.pageSize);
           this.original = products;
           this.loading = false;
         },
