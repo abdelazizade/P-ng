@@ -36,12 +36,10 @@
   </div>
 </div>
 
-<button class="btn btn-primary">Navigate</button>
-
 <mat-paginator
   [length]="products.length"
   [pageSize]="4"
   class="pag"
-  [pageSizeOptions]="[6, 10]"
+  [pageSizeOptions]="[4, 6, 10]"
   (page)="onPageChange($event)"
 ></mat-paginator>

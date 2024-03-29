@@ -15,10 +15,12 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private apiServices: ApiServices
-  ) {}
+  ) {
+    console.log('from Product Details');
+  }
 
   ngOnInit(): void {
-    const productId = this.activatedRoute.snapshot.paramMap.get('id');
+    const productId = this.activatedRoute.snapshot.params['id'];
 
     this.activatedRoute.params.subscribe({
       next: () => {

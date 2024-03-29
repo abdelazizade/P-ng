@@ -5,9 +5,13 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrl: './dashboard.component.css',
 })
 export class DashboardComponent {
+  constructor() {
+    console.log('from Dashboard');
+  }
+
   private breakpointObserver = inject(BreakpointObserver);
 
   /** Based on the screen size, switch from standard to one column per row */
@@ -18,7 +22,7 @@ export class DashboardComponent {
           { title: 'Card 1', cols: 1, rows: 1 },
           { title: 'Card 2', cols: 1, rows: 1 },
           { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
+          { title: 'Card 4', cols: 1, rows: 1 },
         ];
       }
 
@@ -26,7 +30,7 @@ export class DashboardComponent {
         { title: 'Card 1', cols: 2, rows: 1 },
         { title: 'Card 2', cols: 1, rows: 1 },
         { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
+        { title: 'Card 4', cols: 1, rows: 1 },
       ];
     })
   );

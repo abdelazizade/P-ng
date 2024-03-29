@@ -12,19 +12,13 @@ import {
   debounceTime,
   distinctUntilChanged,
   of,
-  reduce,
-  scan,
   switchMap,
-  tap,
   throwError,
 } from 'rxjs';
 import { ApiServices } from './http.service';
 import { IProducts } from './products';
 import { FormControl } from '@angular/forms';
-import { log } from 'console';
-import { PaginationService } from '../services/pagination.service';
 import { MatPaginator } from '@angular/material/paginator';
-import { After } from 'v8';
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -160,6 +154,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     );
     return of(filteredProducts);
   }
+
   onPageChange(event: any): void {
     const startIndex = event.pageIndex * event.pageSize;
     const endIndex = startIndex + event.pageSize;
