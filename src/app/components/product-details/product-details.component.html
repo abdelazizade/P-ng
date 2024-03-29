@@ -13,7 +13,9 @@
           <button>{{ product.rating.count }} <span>Rates</span></button>
         </div>
       </div>
-      <button class="add-to-cart">Add to Cart</button>
+      <button class="add-to-cart">
+        <a [routerLink]="'/cart'">Add to Cart</a>
+      </button>
     </div>
   </div>
 </div>

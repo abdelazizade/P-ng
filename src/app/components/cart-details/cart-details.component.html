@@ -1,0 +1,72 @@
+<h1 class="h6 pt-4 font-weight-semibold" style="text-align: center">
+  YOUR CART
+</h1>
+<br />
+<br />
+<br />
+<div *ngIf="products && products.length == 0">
+  <h2 class="h6 pt-4 font-weight-semibold" style="text-align: center">
+    YOUR CART IS EMPTY
+  </h2>
+</div>
+<div class="container-fluid" style="position: relative; left: 100px">
+  <div class="row">
+    <div class="col-xl-8 col-md-8">
+      <div *ngIf="products && products.length > 0">
+        <h2 class="h6 px-4 py-3 bg-light text-center">Total Price</h2>
+        <div class="h3 font-weight-semibold text-center py-3">
+          {{ total | currency }}
+        </div>
+        <form class="d-flex">
+          <button (click)="checkout()" class="btn btn-outline-success">
+            Checkout
+          </button>
+        </form>
+        <hr />
+      </div>
+
+      <div class="product-info" *ngFor="let product of products; let i = index">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="">
+              <img [src]="product?.image" alt="Product" class="img-circle" />
+            </div>
+          </div>
+          <div class="col-md-9">
+            <h5>
+              {{ product?.name }} <span>${{ product?.price }}</span>
+            </h5>
+            <span class="text-muted">Product Description</span>
+            <p>
+              {{ product?.description }}
+            </p>
+            <div class="input-group">
+              <input
+                [(ngModel)]="product.quantity"
+                [ngModelOptions]="{ standalone: true }"
+                min="1"
+                type="number"
+                value="1"
+                name=""
+                class="form-control form-control-sm w-50"
+              />
+              <span class="input-group-text"
+                >${{
+                  product.quantity * product?.price | number : "1.2-2"
+                }}</span
+              >
+            </div>
+            <button
+              (click)="removeFromCart(product)"
+              type="button"
+              class="btn btn-danger mt-3"
+            >
+              Remove from cart
+            </button>
+          </div>
+        </div>
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>

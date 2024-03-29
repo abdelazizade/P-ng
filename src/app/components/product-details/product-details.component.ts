@@ -16,7 +16,7 @@ export class ProductDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private apiServices: ApiServices
   ) {
-    console.log('from Product Details');
+    // console.log('from Product Details');
   }
 
   ngOnInit(): void {

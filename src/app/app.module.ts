@@ -29,6 +29,10 @@ import { HeroSectionComponent } from './components/hero-section/hero-section.com
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatDividerModule } from '@angular/material/divider';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,9 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     FooterComponent,
     HeroSectionComponent,
     ProductDetailsComponent,
+    CartComponent,
+    CartDetailsComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +66,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     MatPaginatorModule,
     NgxPaginationModule,
     MatDividerModule,
+    NgxPayPalModule,
   ],
   providers: [provideClientHydration(), provideAnimationsAsync()],
   bootstrap: [AppComponent],

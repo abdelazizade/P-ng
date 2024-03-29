@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class DashboardComponent {
   constructor() {
-    console.log('from Dashboard');
+    // console.log('from Dashboard');
   }
 
   private breakpointObserver = inject(BreakpointObserver);

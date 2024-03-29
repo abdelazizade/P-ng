@@ -57,7 +57,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   }
   onNavigate(event: Event, productId: string) {
     this.router.navigate(['product-details', productId]);
-    console.log(productId);
+    // console.log(productId);
   }
 
   updateDisplayedData() {}
