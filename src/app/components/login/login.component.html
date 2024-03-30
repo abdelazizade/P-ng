@@ -1,0 +1,206 @@
+<h1>welcome from login</h1>
+
+<!-- <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+
+
+
+
+  <div class="wrapper wrapper--w680">
+    <div class="card card-4">
+      <div class="card-body">
+        <h2 class="title">Bibliophile Boutique</h2>
+        <h3>Register</h3>
+        <form
+          id="registrationForm"
+          formGroup="loginForm"
+          (ngSubmit)="onsubmit()"
+        >
+          <div class="row row-space">
+            <div class="col-2">
+              <div class="input-group">
+                <label class="label" for="fname">First Name</label>
+                <input
+                  id="fname"
+                  class="input--style-4"
+                  type="text"
+                  name="fname"
+                  formControlName="fname"
+                />
+                <div
+                  id="fnameError"
+                  class="validation-message text-danger"
+                  *ngIf="
+                  signupForm.get('fname')?.errors?.['required'] &&
+                  signupForm.get('fname')?.touched
+                "
+                >
+                  First name is required!
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="input-group">
+                <label for="lname" class="label">Last Name</label>
+                <input
+                  id="lname"
+                  class="input--style-4"
+                  type="text"
+                  name="lname"
+                  formControlName="lname"
+                />
+                <div
+                  id="lnameError"
+                  class="validation-message text-danger"
+                  *ngIf="
+                  signupForm.get('lname')?.errors?.['required'] &&
+                  signupForm.get('lname')?.touched
+                "
+                >
+                  Last name is required!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row row-space">
+            <div class="col-2">
+              <div class="input-group">
+                <label class="label">Email</label>
+                <div class="input-group-icon">
+                  <input
+                    class="input--style-4 js-datepicker"
+                    type="text"
+                    name="email"
+                    formControlName="email"
+                  />
+                  <i
+                    class="zmdi zmdi-calendar-note input-icon js-btn-calendar"
+                  ></i>
+                  <div
+                    class="validation-message text-danger"
+                    *ngIf="
+                    signupForm.get('email')?.errors?.['required'] &&
+                    signupForm.get('email')?.touched
+                  "
+                  >
+                    Email is required
+                  </div>
+                  <div
+                    class="validation-message text-danger"
+                    *ngIf="signupForm.get('email')?.errors?.['pattern']"
+                  >
+                    Invalid Email
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="input-group">
+                <label class="label">Gender</label>
+                <div class="p-t-10">
+                  <label class="radio-container m-r-45" for="maleGender">
+                    Male
+                    <input
+                      type="radio"
+                      id="maleGender"
+                      name="gender"
+                      value="male"
+                      formControlName="gender"
+                      checked="checked"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="radio-container" for="femaleGender">
+                    Female
+                    <input
+                      type="radio"
+                      id="femaleGender"
+                      name="gender"
+                      value="female"
+                      formControlName="gender"
+                    />
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row row-space">
+            <div class="col-2">
+              <div class="input-group">
+                <label for="password" class="label">Password</label>
+                <input
+                  id="password"
+                  class="input--style-4"
+                  type="password"
+                  formControlName="password"
+                />
+                <div
+                  class="validation-message text-danger"
+                  *ngIf="signupForm.get('password')?.errors?.['required'] && signupForm.get('password')?.touched"
+                >
+                  Password is required
+                </div>
+                <div
+                  class="validation-message text-danger"
+                  *ngIf="signupForm.get('password')?.errors?.['minlength']"
+                >
+                  Password should be at least 8 characters!
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="input-group">
+                <label for="phoneNumber" class="label">Phone Number</label>
+                <input
+                  id="phoneNumber"
+                  class="input--style-4"
+                  type="text"
+                  formControlName="phoneNumber"
+                />
+                <div
+                  class="validation-message text-danger"
+                  *ngIf="signupForm.get('phoneNumber')?.errors?.['required'] && signupForm.get('phoneNumber')?.touched"
+                >
+                  Phone number is required
+                </div>
+                <div
+                  class="validation-message text-danger"
+                  *ngIf="signupForm.get('phoneNumber')?.errors?.['pattern']"
+                >
+                  Invalid phone number format!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row row-space">
+            <div class="col-2">
+              <div class="input-group">
+                <label for="birthdate" class="label">Birthdate</label>
+                <input
+                  id="birthdate"
+                  class="input--style-4"
+                  type="date"
+                  name="birthdate"
+                />
+                <div
+                  *ngIf="
+                  signupForm.get('birthdate')?.errors?.['required'] &&
+                  signupForm.get('birthdate')?.touched
+                "
+                >
+                  Birthdate is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-t-15">
+            <button class="btn btn--radius-2 btn--blue" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->

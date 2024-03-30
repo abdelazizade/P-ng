@@ -33,6 +33,9 @@ import { CartComponent } from './components/cart/cart.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { NgxPayPalModule } from 'ngx-paypal';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { AuthComponent } from './components/auth/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +52,9 @@ import { NgxPayPalModule } from 'ngx-paypal';
     CartComponent,
     CartDetailsComponent,
     PaymentComponent,
+    LoginComponent,
+    RegisterComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
