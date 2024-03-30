@@ -4,8 +4,18 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ApiService {
-  products: any[] = [];
+  products: any;
   constructor(private http: HttpClient) {}
+
+  allProducts() {
+    this.http.get('http://localhost:3000/products').subscribe({
+      next: (data) => {
+        this.products = data;
+        // console.log(data);
+      },
+    });
+  }
+
   getAllProducts() {
     return this.http.get('http://localhost:3000/products');
   }
@@ -20,7 +30,8 @@ export class ApiService {
     this.saveCart();
   }
   loadCart() {
-    this.products = JSON.parse(localStorage.getItem('cart_items') as any) || [];
+    return (this.products =
+      JSON.parse(localStorage.getItem('cart_items') as any) || []);
   }
   productInCart(product: any) {
     return this.products.findIndex((i: any) => i.id === product.id) > -1;

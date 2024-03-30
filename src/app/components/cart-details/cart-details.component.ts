@@ -8,15 +8,15 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './cart-details.component.css',
 })
 export class CartDetailsComponent {
-  productList!: any[];
-  products: any[] = [];
+  productList!: any;
+  products: any;
   subTotal!: any;
   constructor(private product_service: ApiService, private router: Router) {}
 
   ngOnInit() {
     this.product_service.getAllProducts().subscribe({
       next: (res: any) => {
-        // console.log(res);
+        console.log(res);
         this.productList = res;
       },
       error: (error) => {
@@ -27,8 +27,10 @@ export class CartDetailsComponent {
       },
     });
 
-    this.product_service.loadCart();
-    this.products = this.product_service.getProduct();
+    this.products = this.product_service.loadCart();
+    console.log(this.products);
+
+    // this.products = this.product_service.getProduct();
   }
 
   removeFromCart(product: any) {
