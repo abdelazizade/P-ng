@@ -8,6 +8,7 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 import { PaymentComponent } from './components/payment/payment.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'test', component: TestComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -36,6 +36,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthComponent } from './components/auth/auth/auth.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { AuthComponent } from './components/auth/auth/auth.component';
     LoginComponent,
     RegisterComponent,
     AuthComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

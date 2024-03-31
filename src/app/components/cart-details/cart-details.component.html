@@ -1,4 +1,4 @@
-<!-- <h1>hallo from cart details</h1>
+<h1>hallo from cart details</h1>
 <h1 class="h6 pt-4 font-weight-semibold" style="text-align: center">
   YOUR CART
 </h1>
@@ -41,7 +41,23 @@
             <p>
               {{ product?.description }}
             </p>
-            <div class="input-group">
+
+            <button
+              (click)="removeFromCart(product)"
+              type="button"
+              class="btn btn-danger mt-3"
+            >
+              Remove from cart
+            </button>
+          </div>
+        </div>
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="input-group">
               <input
                 [(ngModel)]="product.quantity"
                 [ngModelOptions]="{ standalone: true }"
@@ -56,23 +72,10 @@
                   product.quantity * product?.price | number : "1.2-2"
                 }}</span
               >
-            </div>
-            <button
-              (click)="removeFromCart(product)"
-              type="button"
-              class="btn btn-danger mt-3"
-            >
-              Remove from cart
-            </button>
-          </div>
-        </div>
-        <hr />
-      </div>
-    </div>
-  </div>
-</div> -->
-<div class="container">
-  <div *ngFor="let product of products" class="product">
+            </div> -->
+
+<!-- <div class="container">
+  <div *ngFor="let product of products; let i = index">
     <img src="{{ product.image }}" alt="{{ product.title }}" />
     <div class="product-details">
       <div>
@@ -89,6 +92,13 @@
       <button class="add-to-cart">
         <a [routerLink]="'/cart'">Add to Cart</a>
       </button>
+      <button
+        (click)="removeFromCart(product)"
+        type="button"
+        class="btn btn-danger mt-3"
+      >
+        Remove from cart
+      </button>
     </div>
   </div>
-</div>
+</div> -->
